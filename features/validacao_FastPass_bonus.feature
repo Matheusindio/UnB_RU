@@ -1,5 +1,5 @@
 # language: pt
-@issue_bonus_2
+@issue_bonus_2 @bonus
 Funcionalidade: Validação rigorosa do FastPass
   Como Aplicação de Controle
   Quero checar se o estudante sorteado para o FastPass chegou no time-frame vigente

@@ -1,5 +1,5 @@
 # language: pt
-@issue_bonus_4
+@issue_bonus_4 @bonus
 Funcionalidade: Inscrição única no FastPass
   Como estudante
   Quero me inscrever no sorteio gratuito do FastPass escolhendo apenas um time-frame por turno de refeição

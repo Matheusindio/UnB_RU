@@ -1,5 +1,5 @@
 # language: pt
-@issue_bonus_1
+@issue_bonus_1 @bonus
 Funcionalidade: Gestão de turnos
   Como administrador
   Quero definir os horários dos turnos e dividi-los em time-frames configuráveis

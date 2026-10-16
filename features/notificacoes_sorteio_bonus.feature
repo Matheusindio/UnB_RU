@@ -1,5 +1,5 @@
 # language: pt
-@issue_bonus_3
+@issue_bonus_3 @bonus
 Funcionalidade: Notificação do sorteio
   Como estudante
   Quero ser notificado se ganhei ou não o FastPass 1 hora antes do turno
