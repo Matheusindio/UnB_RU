@@ -1,0 +1,42 @@
+# language: pt
+@issue_bonus_4
+Funcionalidade: Inscrição única no FastPass
+  Como estudante
+  Quero me inscrever no sorteio gratuito do FastPass escolhendo apenas um time-frame por turno de refeição
+  Para tentar garantir meu acesso sem filas
+
+  Contexto:
+    Dado que o estudante "100001" está autenticado
+    E que o turno "almoço" do restaurante "Darcy Ribeiro" está dividido em time-frames de 15 minutos
+    E que o turno "jantar" do restaurante "Darcy Ribeiro" está dividido em time-frames de 15 minutos
+    E que as inscrições para o sorteio do FastPass estão abertas
+
+  Cenário: Inscrever-se em um time-frame do turno
+    Dado que o estudante não está inscrito no FastPass do almoço
+    Quando o estudante se inscrever no time-frame das 11:00 às 11:15 do almoço
+    Então a inscrição do estudante no time-frame das 11:00 às 11:15 do almoço deve ser registrada
+    E o estudante deve participar do sorteio do FastPass do almoço
+
+  Cenário: Não cobrar pela inscrição no sorteio
+    Dado que o estudante possui saldo de R$ 10,00
+    Quando o estudante se inscrever no time-frame das 11:00 às 11:15 do almoço
+    Então o saldo do estudante deve continuar em R$ 10,00
+
+  Cenário: Recusar uma segunda inscrição no mesmo turno
+    Dado que o estudante está inscrito no time-frame das 11:00 às 11:15 do almoço
+    Quando o estudante tentar se inscrever no time-frame das 12:00 às 12:15 do almoço
+    Então a segunda inscrição não deve ser registrada
+    E o estudante deve continuar inscrito apenas no time-frame das 11:00 às 11:15 do almoço
+    E deve informar que só é permitido um time-frame por turno
+
+  Cenário: Permitir inscrições em turnos diferentes
+    Dado que o estudante está inscrito no time-frame das 11:00 às 11:15 do almoço
+    Quando o estudante se inscrever no time-frame das 18:00 às 18:15 do jantar
+    Então o estudante deve estar inscrito no time-frame das 11:00 às 11:15 do almoço
+    E deve estar inscrito no time-frame das 18:00 às 18:15 do jantar
+
+  Cenário: Recusar a inscrição após o encerramento das inscrições
+    Dado que as inscrições para o sorteio do FastPass do almoço foram encerradas
+    Quando o estudante tentar se inscrever no time-frame das 11:00 às 11:15 do almoço
+    Então a inscrição não deve ser registrada
+    E deve informar que as inscrições para o turno estão encerradas
